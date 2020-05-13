@@ -149,5 +149,5 @@ var allTaskUpdates = [
         taskDetailId: 3,
         taskUpdateDt: "01/01/1980",
         taskUpdateComment: "Task 3 Update 4 Comment"
-    },
+    }
 ];

@@ -128,6 +128,6 @@ function getUpdatesForTaskDetail(taskDetailId) {
 // specified urgencyDescription and projectId
 function getTaskDetailsForUrgency(urgencyDescription, projectId) {
     return taskDetails.filter(function (item) {
-        return item.urgencyDescription.toLowerCase() === urgencyDescription && item.projectId == projectId;
+        return item.urgencyDescription.toLowerCase() === urgencyDescription && item.projectId === projectId;
     });
 }
