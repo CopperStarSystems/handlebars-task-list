@@ -1,0 +1,65 @@
+﻿<script type="text/x-handlebars-template" id="taskDetailsTemplate">
+    <!-- This template renders an array of TaskDetails objects, so we loop
+           over the array using the handlebars #each construct, drawing this template
+         once for each TaskDetails in the array.
+
+         -->
+    {{#each this}}
+    <div class="container">
+        <div class="row">
+            <div class="col"><a href="#" data-toggle="modal" data-target="#editTaskDetailsModal" data-task-details-id="{{id}}">Edit</a></div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col"><b>Topic:</b></div>
+            <div class="col">{{topic}}</div>
+        </div>
+        <div class="row">
+            <div class="col"><b>Assignee:</b></div>
+            <div class="col">{{assignee}}</div>
+        </div>
+        <div class="row">
+            <div class="col"><b>Project Start Date:</b></div>
+            <div class="col">{{projectSTartDt}}</div>
+        </div>
+        <div class="row">
+            <div class="col"><b>Status:</b></div>
+            <div class="col">{{statusDescription}}</div>
+        </div>
+        <div class="row">
+            <div class="col"><b>Urgency:</b></div>
+            <div class="col">{{urgencyDescription}}</div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col"><b>Detail Summary:</b></div>
+            <div class="col">{{detailSummary}}</div>
+        </div>
+        <div class="row">
+            <div class="col"><b>Updates</b></div>
+            <div class="col"><a href="#" class="btn-show-all-updates" data-task-detail-id="{{id}}">Show All</a></div>
+        </div>
+        <div class="row">
+            <div class="col" id="task-detail-updates-{{id}}">
+                <!-- This line renders the taskDetailUpdatePartial template (registered as 'taskDetailUpdatesList' in registerPartials), passing the list of updates for the current TaskDetail -->
+                {{> taskDetailUpdatesList taskDetailUpdates}}
+            </div>
+        </div>
+    </div>
+    <hr />
+    {{/each}}
+</script>
+
+<script type="text/x-handlebars-template" id="taskDetailUpdatePartial">
+    <!-- Loop over the Updates that were passed to this template and render TaskDetailUpdate rows -->
+    {{#each this}}
+    <div class="row">
+        <div class="col">
+            {{taskUpdateDt}}
+        </div>
+        <div class="col">
+            {{taskUpdateComment}}
+        </div>
+    </div>
+    {{/each}}
+</script>

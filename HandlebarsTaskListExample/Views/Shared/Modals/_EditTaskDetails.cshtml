@@ -1,0 +1,56 @@
+﻿<script type="text/x-handlebars-template" id="editTaskDetailTemplate">
+    {{#each this}}
+    <form action="POST" id="editTaskDetailsForm">
+        <div class="container">
+            <div class="row">
+                <div class="col">ID</div>
+                <div class="col">{{id}}</div>
+            </div>
+            <div class="row">
+                <div class="col">Topic</div>
+                <div class="col"><input type="text" name="topic" value="{{topic}}" /></div>
+            </div>
+            <div class="row">
+                <div class="col">Assignee</div>
+                <div class="col">{{assignee}}</div>
+            </div>
+            <div class="row">
+                <div class="col">Status</div>
+                <div class="col">{{statusDescription}}</div>
+            </div>
+            <div class="row">
+                <div class="col">Urgency</div>
+                <div class="col">
+
+                    <select name="urgencyDescription">
+                        {{#select urgencyDescription}}
+                        <option value="Urgent">Urgent</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Normal">Normal</option>
+                        {{/select}}
+                    </select>
+
+                </div>
+            </div>
+        </div>
+    </form>
+    {{/each}}
+</script>
+
+<div class="modal" tabindex="-1" role="dialog" id="editTaskDetailsModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Task Detail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="editTaskDetailsModalBody"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="saveTaskDetails">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

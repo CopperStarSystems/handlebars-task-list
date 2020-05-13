@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@await Html.PartialAsync("Templates/_AccordionPartial")
+@await Html.PartialAsync("Templates/_TaskDetailsPartial")
+@await Html.PartialAsync("Modals/_EditTaskDetails")
+
+@section Scripts
+{
+    <script src="~/lib/handlebars/handlebars.min.js"></script>
+    <script src="js/unholy-mess.js"></script>
+    <script src="~/js/handlebars/helpers.js"></script>
+    <script src="~/js/data/task-details-data.js"></script>
+    <script src="~/js/data/accordion-data.js"></script>
+    <script src="~/js/templates/taskDetails.js"></script>
+    <script src="~/js/templates/accordion.js"></script>
+    <script src="js/templates/editTaskDetailsModal.js"></script>
+}

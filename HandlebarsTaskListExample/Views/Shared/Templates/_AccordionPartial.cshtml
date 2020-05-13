@@ -1,0 +1,28 @@
+﻿<script type="text/x-handlebars-template" id="accordionTemplate">
+    <div id="accordion">
+        {{#each this}}
+        <h1>{{ groupHeader }}</h1>
+        {{> accordionItemPartial accordionItems}}
+        {{/each}}
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="accordionItemPartial">
+    {{#each this}}
+    <div class="card" data-urgency-description="{{urgencyDescription}}" data-project-id="{{projectId}}">
+        <div class="card-header {{headerBackground this}}" id="{{headerId this}}">
+            <h5 class="mb-0">
+                <button class="btn btn-link accordion-header" data-toggle="collapse" data-target="#{{panelId this}}" aria-expanded="false" aria-controls="collapseOne" data-urgency-description="{{toLowerCase urgencyDescription}}" data-project-id="{{projectId}}">
+                    {{ headerText }}
+                </button>
+            </h5>
+        </div>
+
+        <div class="collapse show" id="{{panelId this}}" aria-labelledby="{{headerId this}}" data-parent="#accordion" data-project-id="{{projectId}}">
+            <div class="card-body"></div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+<div id="accordion-container"></div>
