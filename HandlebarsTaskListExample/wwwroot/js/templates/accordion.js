@@ -72,6 +72,16 @@ function configureAccordion() {
             showAllUpdatesForTaskDetail(taskDetailId);
         });
 
+        $(".editTaskLink").on("click",
+            function(event) {
+                event.preventDefault();
+                $("#editTaskDetailsModal").modal("show", $(this));
+                $("#editTaskDetailsModal").on("hidden.bs.modal",
+                    function(event) {
+                        $("#editTaskDetailsModal").off("hidden.bs.modal");
+                        // TODO: Refresh current panel  
+                    });
+            });
 
     });
 
