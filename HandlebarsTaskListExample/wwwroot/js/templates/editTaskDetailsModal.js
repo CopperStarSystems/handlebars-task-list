@@ -4,14 +4,15 @@
 
 function configureTaskDetailsModal() {
     var modal = $("#editTaskDetailsModal");
-    modal.on("shown.bs.modal", function (e) {
-        var taskDetailsId = $(e.relatedTarget).data("taskDetailsId");
-        var taskDetails = getTaskDetails(taskDetailsId);
-        var html = renderHandlebarsTemplate("editTaskDetailTemplate", taskDetails);
-        $("#editTaskDetailsModalBody").html(html);
+    modal.on("shown.bs.modal",
+        function(e) {
+            var taskDetailsId = $(e.relatedTarget).data("taskDetailsId");
+            var taskDetails = getTaskDetails(taskDetailsId);
+            var html = renderHandlebarsTemplate("editTaskDetailTemplate", taskDetails);
+            $("#editTaskDetailsModalBody").html(html);
 
-        $("#saveTaskDetails").on("click", save);
-    });
+            $("#saveTaskDetails").on("click", save);
+        });
 
     modal.on("hide.bs.modal",
         function() {
@@ -23,11 +24,13 @@ function configureTaskDetailsModal() {
         // TODO:  In reality, our AJAX POST request would occur here...
         alert(formData);
         $("#editTaskDetailsModal").modal("hide");
+
+        // TODO:  Reload the current tab 
     }
 }
 
 function getTaskDetails(taskDetailsId) {
-    return taskDetails.filter(function (item) {
+    return taskDetails.filter(function(item) {
         return item.id === taskDetailsId;
     });
 }

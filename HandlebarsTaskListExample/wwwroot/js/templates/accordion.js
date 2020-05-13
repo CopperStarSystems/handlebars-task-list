@@ -71,6 +71,8 @@ function configureAccordion() {
             var taskDetailId = $(this).data("taskDetailId");
             showAllUpdatesForTaskDetail(taskDetailId);
         });
+
+
     });
 
     // Hook accordion header click event so we can load 
