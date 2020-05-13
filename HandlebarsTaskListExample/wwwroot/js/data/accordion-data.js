@@ -37,5 +37,25 @@
                 urgencyDescription: "Normal"
             }
         ]
+    },
+    {
+        groupHeader: "New Projects",
+        accordionItems: [{
+            headerText: "High Priority",
+            projectId: 3,
+            urgencyDescription: "Urgent"
+        },
+        {
+            headerText: "Medium Priority",
+
+            projectId: 3,
+            urgencyDescription: "Medium"
+        },
+        {
+            headerText: "Low Priority",
+            projectId: 3,
+            urgencyDescription: "Normal"
+        }
+        ]
     }
 ];
